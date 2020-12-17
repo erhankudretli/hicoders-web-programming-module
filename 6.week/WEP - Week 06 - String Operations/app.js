@@ -1,101 +1,87 @@
 /* 
 1) String ifadenin bas harflerini uppercase yapma charAt methodu ile....
 */
-// ornek1="asik veysel";
-// BasHarflerBuyuk=ornek1.charAt(0).toUpperCase() + ornek1.slice(1,5) + ornek1.charAt(5).toUpperCase() + ornek1.slice(6);
-// console.log(BasHarflerBuyuk);
+let ornek1 = "asik veysel";
+let dizi = [];
+dizi = ornek1.split(" ");
+let cikti = [];
+
+for (let i = 0; i < dizi.length; i++) {
+    cikti.push(dizi[i].charAt(0).toUpperCase() + dizi[i].slice(1));
+}
+console.log(cikti.join(" "));
+
 
 /* 
 2) 0-100 arasi sayilari 10x10 seklinde yazdirma...
 */
-
-
-
-// let yatay1=[];
-//  for(let index=0;index<10; index++){
-//     yatay1.push(sayiDizisi[index]);   
-// }
-// console.log(yatay1.join());
-// let yatay2=[];
-// for(let p=10;p<20; p++){
-//     yatay2.push(sayiDizisi[p]);   
-// }
-// console.log(yatay2.join());
-// let yatay3=[];
-// for(let p=20;p<30; p++){
-//     yatay3.push(sayiDizisi[p]);   
-// }
-// console.log(yatay3.join());
-// let yatay4=[];
-// for(let p=30;p<40; p++){
-//     yatay4.push(sayiDizisi[p]);   
-// }
-// console.log(yatay4.join());
-
-// let yatay5=[];
-// for(let p=40;p<50; p++){
-//     yatay5.push(sayiDizisi[p]);   
-// }
-// console.log(yatay5.join());
-// let yatay6=[];
-// for(let p=50;p<60; p++){
-//     yatay6.push(sayiDizisi[p]);   
-// }
-// console.log(yatay6.join());
-// let yatay7=[];
-// for(let p=60;p<70; p++){
-//     yatay7.push(sayiDizisi[p]);   
-// }
-// console.log(yatay7.join());
-// let yatay8=[];
-// for(let p=70;p<80; p++){
-//     yatay8.push(sayiDizisi[p]);   
-// }
-// console.log(yatay8.join());
-// let yatay9=[];
-// for(let p=80;p<90; p++){
-//     yatay9.push(sayiDizisi[p]);   
-// }
-// console.log(yatay9.join());
-// let yatay10=[];
-// for(let p=90;p<100; p++){
-//     yatay10.push(sayiDizisi[p]);   
-// }
-// console.log(yatay10.join());
+let space = "";
+for (let i = 1; i < 101; i++) {
+    if (i % 10 == 1) {
+        space = space + "\n";
+        space = space + i + ",";
+    } else {
+        space = space + i + ",";
+    }
+}
+console.log(space);
 
 /* 
-3)asal sayilar
+3)Asal sayilari yazdir...
 */
-// yukarida olusturdugum diziyi kullaniyorum...
-
-// let asalDizisi=[];
-// for (let i = 2; i < 101; i++) {
-//     let durum=true;
-//     for (let j = 2; j < i; j++) {
-//         if(i %j==0){
-//             durum=false;
-//         }
-//     }
-// if(durum){
-//     asalDizisi.push(i);
-// }
-// }
-// console.log(asalDizisi);
-   
+let asalDizi = [];
+for (let i = 2; i < 101; i++) {
+    let status = true;
+    for (let j = 2; j < i; j++) {
+        if (i % j == 0) {
+            status = false;
+        }
+    }
+    if (status) {
+        asalDizi.push(i);
+    }
+}
+console.log(asalDizi);
 
 
+
+/* 
+4)Rastgele Sifre Olusturma....
+*/
+let kucukHarf = "abcdefghijklmnopqrstuvwxyz",
+    buyukHarf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    ozelKarakter = "!@#_"
+sayilar = "0123456789"
+tumKarakterler = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#_0123456789";
+let parolaDizisi = [];
+for (let k = 0; k < 50; k++) {
+    parolaUzunlugu = Math.floor(Math.random() * 8) + 8; // 8 ve 16 arasında sayı üretir.;
+    password = "",
+        password += kucukHarf.charAt(Math.floor(Math.random() * kucukHarf.length));
+    password += buyukHarf.charAt(Math.floor(Math.random() * buyukHarf.length));
+    password += ozelKarakter.charAt(Math.floor(Math.random() * ozelKarakter.length));
+    password += sayilar.charAt(Math.floor(Math.random() * sayilar.length));
+    for (let i = 1; i <= parolaUzunlugu - 4; i++) {
+        password += tumKarakterler.charAt(Math.floor(Math.random() * tumKarakterler.length));
+    }
+    parolaDizisi.push(password);
+} // dis while kapanis
+console.log(parolaDizisi);
+/* ödev oldu fakat söyle bir sikinti var, sifrelerin ilk 4 karakteri hep ayni sirayla olustu. Bu bir 
+zayiflik fakat, olusan sifre stringi ni tüm karakterleri tasimasi bakimindan kontrol edecek yöntem 
+bulamadim (match() yöntemi yemedi, sebebini anlamadim) ve düsünmek icin fazla zaman kalmadi. 
+Ama carsamba aksami bu ödevi birlikte yapalim ins.*/
 
 
 /* 
 5)yildizlarda kayar...
 */
+let i, j;
+let yildizList = [""];
 
-  
- let i, j;
- let yildizList=[""];
-
-for (i = 0; i <4; i++) {
+for (i = 0; i < 4; i++) {
     for (j = 0; j < i; j++) {
-       yildizList.push("*");
- console.log(yildizList.join(""));
-} }
+        yildizList.push("*");
+        console.log(yildizList.join(""));
+    }
+}
