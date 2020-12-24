@@ -1,48 +1,54 @@
-const notes = [
-    ["Hans", 80, 90, 10, 50], 
-    ["Ulrich", 94, 36, 76, 74], 
-    ["Olaf", 30, 60, 34, 78], 
-    ["Otto", 60, 60, 78, 23],
-    ["Tina", 71, 45, 89, 100],
-    ["Rosalina", 40, 56, 82, 40],
-    ["Urs", 49, 45, 56, 67],
-    ["Monika", 49, 42, 16, 62]
-];
 /*
-Not ortalamasi bulan fonk. 
-*/
+ * Burada parca ismini disaridan almaya calismayacagim. Kendi olusturacagim dizi 
+ * üzerinden istenen islemleri yapacagim.
+ */
+let ToptanParcaListesi = ["Egzoz123", "DikizAYNA10x5"];
+let DepoEnvanteri = [];
 
-let NotToplami=0;
-let DersOrtalamasi=0;
- function NotOrtalamasiBul(DersIndexi){
-    for(let index=0;index<notes.length;index++){
-        NotToplami=NotToplami+ notes[index][DersIndexi];
-        }
-        DersOrtalamasi=NotToplami/notes.length;    
-        return DersOrtalamasi;    
- }
- /*
-Degerleri sifirlayan fonk. 
-*/
- function DegerleriSifirla(){
-     NotToplami=0;
-     DersOrtalamasi=0;
- }
+function BuyukHarfeCevir(diziIsmi) {
+    diziIsmi = diziIsmi.map(diziIsmi => diziIsmi.toUpperCase());
+    return diziIsmi;
+}
 
-
-// Tüm Derslerden ortalamanin üstünde olanlari bul...
-
-let TumDerslerdenBasariliOlanlar=[];
-let al=true;
-DegerleriSifirla();
-for(let e=0;e<notes.length;e++){
-    for(let h=1;h<5;h++){
-    if (NotOrtalamasiBul(h)>notes[e][h]){
-     al=false;
+function RakamlariSil(diziIsmi) {
+    for (let index = 0; index < diziIsmi.length; index++) {
+        diziIsmi[index] = diziIsmi[index].replace(/\d+/g, '');
     }
+    return diziIsmi;
 }
-if (al) {
-    TumDerslerdenBasariliOlanlar.push(notes[e][0])
+
+function TersYazdir(str) {
+    var splitString = str.split("");
+    var reverseArray = splitString.reverse();
+    var joinArray = reverseArray.join("");
+    return joinArray;
 }
+
+function ImzaEkle(arrayismi) {
+    for (let index = 0; index < arrayismi.length; index++) {
+        arrayismi[index] = "KEREMAG_" + arrayismi[index];
+    }
+    return arrayismi;
 }
-console.log(TumDerslerdenBasariliOlanlar);
+
+function DiziyeTarihEkle(dizi) {
+    for (let index = 0; index < dizi.length; index++) {
+        dizi[index] = dizi[index] + " " + new Date() + "\n";
+    }
+    return dizi;
+}
+
+BuyukHarfeCevir(ToptanParcaListesi);
+
+RakamlariSil(ToptanParcaListesi);
+
+for (let index = 0; index < ToptanParcaListesi.length; index++) {
+    ToptanParcaListesi[index] = TersYazdir(ToptanParcaListesi[index]);
+}
+
+ImzaEkle(ToptanParcaListesi);
+
+DiziyeTarihEkle(ToptanParcaListesi);
+
+DepoEnvanteri = ToptanParcaListesi;
+console.log("Depodaki ürünlerimiz:  " + DepoEnvanteri);
