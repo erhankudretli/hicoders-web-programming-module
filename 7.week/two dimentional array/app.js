@@ -68,14 +68,15 @@ DegerleriSifirla();
 for (let e = 0; e < notes.length; e++) {
     for (let h = 1; h < 5; h++) {
         if (NotOrtalamasiBul(h) > notes[e][h]) {
-            al = false;
+            al = false; 
         }
+        DegerleriSifirla();
     }
     if (al) {
-        TumDerslerdenBasariliOlanlar.push(notes[e][0])
+        TumDerslerdenBasariliOlanlar.push(notes[e][0]);
     }
 }
-console.log(TumDerslerdenBasariliOlanlar);
+console.log("Tüm derslerden basarili olan kisiler: "+TumDerslerdenBasariliOlanlar);
 
 /* - Sinifin hangi dersde en iyi nota sahip oldugunu gostermesi
 Burada ortalamalari karsilastirsak yeterli gelir.
