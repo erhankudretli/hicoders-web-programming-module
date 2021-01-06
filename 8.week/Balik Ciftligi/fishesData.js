@@ -178,9 +178,21 @@ return sonKullanimTarihi;
 }
 sonKullanimTarihlerineBak();
 
+let abUlkeleri=["Norway","Spain","GREECE","Italy","France"];
+let butunUlkeler=fishFarm.map(ittem=> {
+    ittem.originCountry;
+})
+console.log(butunUlkeler)
+
 /*
 Avrupa Birligi'nden (AB) gelen ve fiyati 10Fr dan dusuk olan baliklari alfabetik siraya gore siralayiniz.
  */
+
+let abUlkeleri=["Norway","Spain","GREECE","Italy","France"];
+let butunUlkeler=fishFarm.map(ittem=> {
+    ittem.originCountry;
+})
+console.log(butunUlkeler)
 
 let abUlkeleri=["Norway","Spain","GREECE","Italy","France"];
 let butunUlkeler=fishFarm.map(ittem=> {
