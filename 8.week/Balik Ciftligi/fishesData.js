@@ -112,7 +112,6 @@ const fishFarm = [
 ]
 
 
-
 /*
 *Stok miktari 500 kg uzerinde olan baliklarin isimleri nelerdir?
 */
