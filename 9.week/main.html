@@ -1,0 +1,46 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+<html>
+
+<head>
+    <title> </title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <main>
+
+        <section class="Deneme1">
+            <h2>Deneme 1</h2>
+            <p>Burada JS ile renk degisimini yapamadim. O yüzden daha basit bir sekilde
+                ikinci denemeyi yapacagim. "progress::-webkit-progress-value" koduna pure JS
+                ile erismem gerekiyordu degisiklik yapabilmek icin fakat ne yazik ki yapamadim,
+                ama sizinde görmenizi istedigim icin bunu da birakiyorum buraya.
+            </p>
+            <input type=button value='Decrease' onClick='dcr();'>
+            <progress value="10" max="100" id=p1></progress>
+            <input type=button value='Increase' onClick='incr();'>
+        </section>
+        <section class="Deneme2">
+            <h2>Deneme 2</h2>
+            <div class="container">
+                <div class="row">
+                    <div id="bateryTop"></div>
+                    <div id="batery">
+                        <div id="first-click"></div>
+                        <div id="second-click"></div>
+                        <div id="third-click"></div>
+                        <div id="fourth-click"></div>
+                    </div>
+                    <div class="row">
+                        <button id="reduceCharge">Bosalt</button>
+                        <button id="charge">Yükle</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./function.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
