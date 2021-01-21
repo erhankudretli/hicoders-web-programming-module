@@ -6,10 +6,21 @@ img {
     margin-left: 10vw;
 }
 
+.delete {
+    background-color: red;
+    color: white;
+}
+
 .buy,
 .delete {
     border-radius: 20%;
     ;
+}
+
+.buy {
+    background-color: rgb(1, 151, 58);
+    color: white;
+    padding: 2vh;
 }
 
 .captionText {
