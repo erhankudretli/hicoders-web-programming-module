@@ -1,0 +1,24 @@
+img {
+    width: 3vw;
+}
+
+#shopp {
+    margin-left: 10vw;
+}
+
+.buy,
+.delete {
+    border-radius: 20%;
+    ;
+}
+
+.captionText {
+    color: rgb(0, 0, 0);
+    font-size: 3vw;
+    font-weight: bold
+}
+
+#shopping-icon {
+    width: 15vw;
+    margin-left: 5vw;
+}
