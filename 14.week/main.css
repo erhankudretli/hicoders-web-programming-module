@@ -1,0 +1,20 @@
+.data-input-examples {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin-left: 500px;
+
+
+
+}
+
+.data-input-examples>div {
+    flex: 1;
+    margin: 2em;
+    background: #a7a4a4;
+    padding: 0.5em;
+}
+
+input {
+    width: 1vh;
+}
