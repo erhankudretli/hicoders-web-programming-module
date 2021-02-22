@@ -1,55 +1,53 @@
+  
 /*
- - Bootstrap yardimiyla dizayn olusturacagim. Kabaca 4x oyuncu listesinin bulunacagi bölüm 8x ise oyunun oynanacagi bölüm.
- - Öncelikle bir oyuncu listesi olusturacagim ve kullanicilar buraya oyuncu ekleyebilecekler. 
- -  
-
-
-
-
+1. Her cocuk programi acinca isim listesi ve toplam basari puani ile karsilasacak.
+2. Ismi yoksa kendi ismini kaydedebilecek.
+3. Carpim tablosu alani olusturulacak.
+3.1. 10 tane islem ve yaninda cevap kutusu olacak.
+4. Isim girildikten sonra otomatik olarak 10 soruluk bölüm acilacak.
+5. Her oturum icin 10 saniye süresi vardir.
+6. Süre bittiginde ya da bütün sorular cevaplandiginda program bitecek.
+7. Bittikten sonra isim listesine geri dönecek.
+8. Cocugun puani listede güncellenecek.
+9. Isim ve puan listesi program kapandiktan sonrada muhafaza edilecek.
+10. Program fullscreen olacak (optional)
+11. Arka planda müzik calacak (opsional).
+12. Baska bir program acildiginda süre durdurulacak. Tekrar oyuna dönüldügünde kaldigi yerden devam edecek.
 */
-document.getElementById("addGamer").addEventListener("click", addGamer)
-let GamerList = [];
-function addGamer() {
-    let formInfos = {};
-    formInfos = {
-      firstName: document.getElementsByTagName("input")[0].value,
-      lastName: document.getElementsByTagName("input")[1].value,
-    }
-    GamerList.push(formInfos);
-    event.preventDefault();
-    refreshList()
-    return console.log(GamerList);
-  }
+let number1;
+let number2;
+let timer = getInterval();
+let students = [];
+let registration = document.getElementById("registry");
+getName();
+registration.addEventListener("click", () => {
+  setLocaleStorage();
+  getName();
+});
 
-  function showGamers(pList) {
-    return  pList.map((student, index) => `
-    <tbody>
-    <tr>
-      <th scope="row">${index+1}</th>
-      <td>${student.firstName}</td>
-      <td>${student.lastName}</td>
-      <td></td>
-      <td><button id="${index}" type="button" class="btn btn-success">Play</button></td>
-    </tr>
-  </tbody>`);
-  }
+let play = document.getElementById("play");
+play.addEventListener("click", () => {
+  getPlayArea();
+  getInterval();
+});
 
-  function showGamerHeader() {
-    return `<table class="table">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th> 
-      <th scope="col">Score</th> 
-    </tr>
-  </thead>
- ${showGamers(GamerList)}
-  </table>`
-  }
+let check = document.getElementById("check");
+check.addEventListener("click", () => {
+  let resultPoint = checkResult();
+  updateStudentPoints(resultPoint);
+  getName();
+});
 
-document.querySelector(".gamer-list").innerHTML=showGamerHeader()
+function clearPlayingArea() {
+  document.getElementById("number-area").innerHTML = "";
+}
 
-function refreshList() {
-    document.querySelector(".gamer-list").innerHTML = showGamerHeader(GamerList);
-  }
+function getInterval() {
+  setTimeout(() => {
+    checkResult();
+    let resultPoint = checkResult();
+    updateStudentPoints(resultPoint);
+    getName();
+    alert("Time out");
+  }, 10000);
+}
