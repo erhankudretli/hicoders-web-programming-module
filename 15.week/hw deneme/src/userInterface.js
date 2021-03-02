@@ -1,0 +1,1 @@
+document.querySelector(".musteri-blogu").innerHTML=createClientBlock()
